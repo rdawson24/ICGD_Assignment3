@@ -151,7 +151,19 @@ public class LevelGenerator : MonoBehaviour
                 }
                 if(levelMap[i, j] == 3){
                     //Check 3 4 7
-                    if((above == 3 || above == 4 || above == 7) && (right == 3 || right == 4 || right == 7)){
+                    if((above == 4 || above == 7) && (right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), parent.transform);
+                    }
+                    else if((below == 4 || below == 7) && (right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 0.0f), parent.transform);
+                    }
+                    else if((below == 4 || below == 7) && (left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 270.0f), parent.transform);
+                    }
+                    else if((above == 4 || above == 7) && (left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 180.0f), parent.transform);
+                    }
+                    else if((above == 3 || above == 4 || above == 7) && (right == 3 || right == 4 || right == 7)){
                         Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), parent.transform);
                     }
                     else if((below == 3 || below == 4 || below == 7) && (right == 3 || right == 4 || right == 7)){
@@ -160,7 +172,19 @@ public class LevelGenerator : MonoBehaviour
                     else if((below == 3 || below == 4 || below == 7) && (left == 3 || left == 4 || left == 7)){
                         Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 270.0f), parent.transform);
                     }
-                    else if((above == 3 || above == 4 || above == 7 && left == 3 || left == 4 || left == 7)){
+                    else if((above == 3 || above == 4 || above == 7) && (left == 3 || left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 180.0f), parent.transform);
+                    }
+                    else if((above == -1 || above == 3 || above == 4 || above == 7) && (right == -1 || right == 3 || right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), parent.transform);
+                    }
+                    else if((below == -1 || below == 3 || below == 4 || below == 7) && (right == -1 || right == 3 || right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 0.0f), parent.transform);
+                    }
+                    else if((below == -1 || below == 3 || below == 4 || below == 7) && (left == -1 || left == 3 || left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 270.0f), parent.transform);
+                    }
+                    else if((above == -1 || above == 3 || above == 4 || above == 7) && (left == -1 ||left == 3 || left == 4 || left == 7)){
                         Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 180.0f), parent.transform);
                     }
                 }
@@ -172,10 +196,10 @@ public class LevelGenerator : MonoBehaviour
                     else if((right == 3 || right == 4 || right == 7) && (left == 3 || left == 4 || left == 7)){
                         Instantiate(piece4, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.identity, parent.transform);
                     }
-                    else if((above == -1 || above == 1 || above == 2 || above == 7) && (below == -1 || below == 1 || below == 2 || below == 7)){
+                    else if((above == -1 || above == 3 || above == 4 || above == 7) && (below == -1 || below == 3 || below == 4 || below == 7)){
                         Instantiate(piece4, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), parent.transform);
                     }
-                    else if((right == -1 || right == 1 || right == 2 || right == 7) && (left == -1 || left == 1 || left == 2 || left == 7)){
+                    else if((right == -1 || right == 3 || right == 4 || right == 7) && (left == -1 || left == 3 || left == 4 || left == 7)){
                         Instantiate(piece4, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.identity, parent.transform);
                     }
                 }
@@ -267,8 +291,6 @@ public class LevelGenerator : MonoBehaviour
                     Instantiate(piece0, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.identity, trimmedParent.transform);
                 }
                 if(levelMap[i, j] == 1){
-                    //Debug.Log("i = " + i + " j = " + j);
-                    //Debug.Log("Above: " + above + " Below " + below + " Right " + right + " Left " + left);
                     if((above == 1 || above == 2 || above == 7) && (right == 1 || right == 2 || right == 7)){
                         Instantiate(piece1, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), trimmedParent.transform);
                     }
@@ -298,7 +320,19 @@ public class LevelGenerator : MonoBehaviour
                 }
                 if(levelMap[i, j] == 3){
                     //Check 3 4 7
-                    if((above == 3 || above == 4 || above == 7) && (right == 3 || right == 4 || right == 7)){
+                    if((above == 4 || above == 7) && (right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), trimmedParent.transform);
+                    }
+                    else if((below == 4 || below == 7) && (right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 0.0f), trimmedParent.transform);
+                    }
+                    else if((below == 4 || below == 7) && (left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 270.0f), trimmedParent.transform);
+                    }
+                    else if((above == 4 || above == 7) && (left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 180.0f), trimmedParent.transform);
+                    }
+                    else if((above == 3 || above == 4 || above == 7) && (right == 3 || right == 4 || right == 7)){
                         Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), trimmedParent.transform);
                     }
                     else if((below == 3 || below == 4 || below == 7) && (right == 3 || right == 4 || right == 7)){
@@ -307,7 +341,19 @@ public class LevelGenerator : MonoBehaviour
                     else if((below == 3 || below == 4 || below == 7) && (left == 3 || left == 4 || left == 7)){
                         Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 270.0f), trimmedParent.transform);
                     }
-                    else if((above == 3 || above == 4 || above == 7 && left == 3 || left == 4 || left == 7)){
+                    else if((above == 3 || above == 4 || above == 7) && (left == 3 || left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 180.0f), trimmedParent.transform);
+                    }
+                    else if((above == -1 || above == 3 || above == 4 || above == 7) && (right == -1 || right == 3 || right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), trimmedParent.transform);
+                    }
+                    else if((below == -1 || below == 3 || below == 4 || below == 7) && (right == -1 || right == 3 || right == 4 || right == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 0.0f), trimmedParent.transform);
+                    }
+                    else if((below == -1 || below == 3 || below == 4 || below == 7) && (left == -1 || left == 3 || left == 4 || left == 7)){
+                        Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 270.0f), trimmedParent.transform);
+                    }
+                    else if((above == -1 || above == 3 || above == 4 || above == 7) && (left == -1 ||left == 3 || left == 4 || left == 7)){
                         Instantiate(piece3, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 180.0f), trimmedParent.transform);
                     }
                 }
@@ -319,10 +365,10 @@ public class LevelGenerator : MonoBehaviour
                     else if((right == 3 || right == 4 || right == 7) && (left == 3 || left == 4 || left == 7)){
                         Instantiate(piece4, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.identity, trimmedParent.transform);
                     }
-                    else if((above == -1 || above == 1 || above == 2 || above == 7) && (below == -1 || below == 1 || below == 2 || below == 7)){
+                    else if((above == -1 || above == 3 || above == 4 || above == 7) && (below == -1 || below == 3 || below == 4 || below == 7)){
                         Instantiate(piece4, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.Euler(0.0f, 0.0f, 90.0f), trimmedParent.transform);
                     }
-                    else if((right == -1 || right == 1 || right == 2 || right == 7) && (left == -1 || left == 1 || left == 2 || left == 7)){
+                    else if((right == -1 || right == 3 || right == 4 || right == 7) && (left == -1 || left == 3 || left == 4 || left == 7)){
                         Instantiate(piece4, new Vector3(0 + (spacing * j), 0 + (spacing * i * -1.0f), 0), Quaternion.identity, trimmedParent.transform);
                     }
                 }
@@ -341,8 +387,8 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         GameObject trimmedGenerated = GameObject.FindWithTag("TrimmedGeneratedLevel");;
-        Instantiate(trimmedGenerated, new Vector3(trimmedGenerated.transform.position.x, trimmedGenerated.transform.position.y -165.41f, trimmedGenerated.transform.position.z + 912.24f), Quaternion.Euler(0.0f, -180.0f, -180.0f));
-        Instantiate(trimmedGenerated, new Vector3(trimmedGenerated.transform.position.x + 41.41f, trimmedGenerated.transform.position.y - 165.41f, trimmedGenerated.transform.position.z), Quaternion.Euler(0.0f, 0.0f, -180.0f));
+        Instantiate(trimmedGenerated, new Vector3(trimmedGenerated.transform.position.x, trimmedGenerated.transform.position.y -164.66f, trimmedGenerated.transform.position.z + 912.24f), Quaternion.Euler(0.0f, -180.0f, -180.0f));
+        Instantiate(trimmedGenerated, new Vector3(trimmedGenerated.transform.position.x + 41.41f, trimmedGenerated.transform.position.y - 164.66f, trimmedGenerated.transform.position.z), Quaternion.Euler(0.0f, 0.0f, -180.0f));
         Destroy(trimmedGenerated);
     }
 
